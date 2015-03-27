@@ -8,7 +8,6 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 /**
  * This is the class that validates and merges configuration from your app/config files
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  */
 class Configuration implements ConfigurationInterface
 {
@@ -19,9 +18,9 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('nomaya_social');
-        
+
         $rootNode
-            ->isRequired()        
+            ->isRequired()
             ->children()
                 ->arrayNode('buttons')
                     ->isRequired()
@@ -32,10 +31,10 @@ class Configuration implements ConfigurationInterface
                                 ->defaultNull()
                                 ->validate()
                                 ->ifTrue(function ($s) {
-                                        return is_null($s) ? false : 1 !== preg_match('/^((http:\/\/|https:\/\/)?(www.)?(([a-zA-Z0-9-]){2,}\.){1,4}([a-zA-Z]){2,6}(\/([a-zA-Z-_\/\.0-9#:?=&;,]*)?)?)/', $s);
-                                    })
+                                    return is_null($s) ? false : 1 !== preg_match('/^((http:\/\/|https:\/\/)?(www.)?(([a-zA-Z0-9-]){2,}\.){1,4}([a-zA-Z]){2,6}(\/([a-zA-Z-_\/\.0-9#:?=&;,]*)?)?)/', $s);
+                                })
                                 ->thenInvalid('Invalid url format')
-                                ->end()                            
+                                ->end()
                             ->end()
                             ->scalarNode('locale')
                                 ->defaultValue('%locale%')
@@ -74,7 +73,7 @@ class Configuration implements ConfigurationInterface
                             return preg_match('/^((http:\/\/|https:\/\/)?(www.)?(([a-zA-Z0-9-]){2,}\.){1,4}([a-zA-Z]){2,6}(\/([a-zA-Z-_\/\.0-9#:?=&;,]*)?)?)/', $s) !== 1;
                         })
                             ->thenInvalid('Invalid url format')
-                        ->end()                                    
+                        ->end()
                     ->end()
                 ->end()
                 ->scalarNode('theme')
