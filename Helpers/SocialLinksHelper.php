@@ -14,15 +14,14 @@ class SocialLinksHelper extends Helper
         $this->templating  = $templating;
     }
 
-
     public function socialLinks($parameters)
     {
-      return $this->templating->render('NomayaSocialBundle:Links:socialLinks.html.twig', $parameters);
+        return $this->templating->render('NomayaSocialBundle:Links:socialLinks.html.twig', $parameters);
     }
 
     public function socialLink($parameters)
     {
-      return $this->templating->render('NomayaSocialBundle:Links:socialLink.html.twig', $parameters);
+        return $this->templating->render('NomayaSocialBundle:Links:socialLink.html.twig', $parameters);
     }
 
     public function getName()

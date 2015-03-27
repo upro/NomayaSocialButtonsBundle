@@ -9,13 +9,13 @@
    var js, fjs = d.getElementsByTagName(s)[0];
    if (d.getElementById(id)) return;
    js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/{{locale}}/all.js#xfbml=1";
+   js.src = "//connect.facebook.net/{{ locale }}/all.js#xfbml=1";
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));</script>
 
 {% if action is defined and action == 'share' %}
-    <div class="fb-share-button" data-href="{{url}}" data-layout="{{layout}}"></div>
+    <div class="fb-share-button" data-href="{{ url }}" data-layout="{{ layout }}"></div>
 {% else %}
- <div class="fb-like" data-href="{{url}}" data-send="{{send}}" data-layout="{{layout}}" data-width="{{width}}" data-show-faces="{{showFaces}}" data-share="{{share}}"></div>
+    <div class="fb-like" data-href="{{ url }}" data-send="{{ send }}" data-layout="{{ layout }}" data-width="{{ width }}" data-show-faces="{{ showFaces }}" data-share="{{ share }}"></div>
 {% endif %}
 {% endspaceless %}

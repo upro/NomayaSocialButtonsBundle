@@ -47,16 +47,15 @@ class NomayaSocialExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        foreach($config['buttons'] as $network => $value )
-        {
-            $container->setParameter('buttons.'.$network , $value);
+        foreach ($config['buttons'] as $network => $value) {
+            $container->setParameter('buttons.' . $network, $value);
         }
-        foreach($config['links'] as $network => $value )
-        {
-            $container->setParameter('links.'.$network , array(
-                                                        'network'   => $network, 
-                                                        'url'       => $value,
-                                                        'theme'     => $config['theme']));
+        foreach ($config['links'] as $network => $value) {
+            $container->setParameter('links.' . $network, array(
+                'network'   => $network,
+                'url'       => $value,
+                'theme'     => $config['theme']
+            ));
         }
         $container->setParameter('social.theme', $config['theme']);
     }
