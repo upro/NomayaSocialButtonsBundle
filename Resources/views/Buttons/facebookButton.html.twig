@@ -14,7 +14,7 @@
  }(document, 'script', 'facebook-jssdk'));</script>
 
 {% if action is defined and action == 'share' %}
-    <div class="fb-share-button" data-href="{{ url }}" data-layout="{{ layout }}" {% if verticalAlign is defined %}style="vertical-align: {{ verticalAlign }};"{% endif %}></div>
+    <div class="fb-share-button" data-href="{{ url }}" data-layout="{{ layout }}" {% if verticalAlign is defined %}style="vertical-align: {{ verticalAlign }}; display: inline-block;"{% endif %}></div>
 {% else %}
     <div class="fb-like" data-href="{{ url }}" data-send="{{ send }}" data-layout="{{ layout }}" data-width="{{ width }}" data-show-faces="{{ showFaces }}" data-share="{{ share }}"  {% if verticalAlign is defined %}style="vertical-align: {{ verticalAlign }};"{% endif %}></div>
 {% endif %}
